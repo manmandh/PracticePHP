@@ -1,27 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Server</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
-
 <body>
-  <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
-    username: <br>
+    <form action="sanitize.php" method="post">
     <input type="text" name="username"> <br>
-    <input type="submit" value="Submit" name="submit">
-  </form>
+    <input type="submit" name="login" value="login">
+    </form>
+
+    
 </body>
-
 </html>
-
-<?php 
-  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    echo 'HHHH' . '<br>';
-  }
-  if (isset($_POST['submit'])) {
-    if ($_POST['username']) echo $_POST['username'];
-  }
+<?php
+if (isset($_POST["login"])) {
+    $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
+    echo "Hello {$username}";
+}
 ?>
