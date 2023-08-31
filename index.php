@@ -1,18 +1,25 @@
 <?php
 include("database.php");
+$username = "Squidward";
+$password = "clarinet2";
+$hash = password_hash($password, PASSWORD_DEFAULT);
+$conn = "";
 
-// $username = "Squidward";
-// $password = "clarinet2";
-// $hash = password_hash($password, PASSWORD_DEFAULT);
+try {
+    $conn = mysqli_connect($db_server, $db_user, $db_pass, $db_name);
+}
+catch(mysqli_sql_exception){
+    echo "Could not connect !! <br>";
+}
 
-// $sql = "INSERT INTO users (user, password) VALUES('$username', '$hash')";
-// try{
-//     mysqli_query($conn, $sql);
-//     echo "User is now registered";
-// }
-// catch(mysqli_sql_exception){
-//     echo "Could not register user";
-// }
+$sql = "INSERT INTO users (user, password) VALUES('$username', '$hash')";
+try{
+    mysqli_query($conn, $sql);
+    echo "User is now registered";
+}
+catch(mysqli_sql_exception){
+    echo "Could not register user";
+}
 
 $sql = "SELECT * FROM users WHERE";
 $result = mysqli_query($conn, $sql);

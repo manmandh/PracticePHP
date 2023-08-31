@@ -25,9 +25,10 @@ switch($date){
     default:
         echo "{$date} is not a day";
 
+        echo "<br>";
     //for loop
-    // for($i=0;$i<5;$i++){
-    // echo $i . "<br>";
-    //}
+    for($i=0;$i<5;$i++){
+    echo $i . "<br>";
+    }
 }
 ?>
