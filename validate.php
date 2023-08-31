@@ -24,4 +24,6 @@
   if (isset($_POST['submit'])) {
     if ($_POST['username']) echo $_POST['username'];
   }
+
+  
 ?>

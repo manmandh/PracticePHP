@@ -6,7 +6,7 @@
     <title>calculator</title>
 </head>
 <body>
-    <form action="calculator.php" method= "get" >
+    <form action="get.php" method= "get" >
         <label for="">quantity: </label> <br>
         <input type="text" name = "quantity"> <br>
         <input type="submit" name = "total">
